@@ -10,6 +10,8 @@
   - All static refs from now on should be created using constructors like `new RefV(...)` or `new DatabaseV(...)`
 - Adds constructor `FaunaClient(string secret, string endpoint, TimeSpan? timeout)` and `FaunaClient(IClientIO clientIO)`
 - Removes constructor `FaunaClient(string secret, string domain, string scheme, int? port, TimeSpan? timeout, IClientIO clientIO)`
+- Don't throw exception for missing attributes when constructing objects, assign default value
+- Fix default missing constructor for value types
 
 ## 1.0.0
 
