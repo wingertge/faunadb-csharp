@@ -1,5 +1,4 @@
-﻿using System;
-using FaunaDB.Query;
+﻿using FaunaDB.Query;
 using Newtonsoft.Json;
 
 namespace FaunaDB.Types
@@ -10,15 +9,14 @@ namespace FaunaDB.Types
     /// See <see href="https://fauna.com/documentation/queries#values-special_types">FaunaDB Special Types</see>.
     /// </para>
     /// </summary>
-    public class RefV : Value
+    public class RefV : ScalarValue<string>
     {
-        public string Id { get; }
+        public string Id { get { return Value; } }
         public RefV Class { get; }
         public RefV Database { get; }
 
-        public RefV(string id, RefV @class = null, RefV database = null)
+        public RefV(string id, RefV @class = null, RefV database = null) : base(id)
         {
-            Id = id;
             Class = @class;
             Database = database;
         }
